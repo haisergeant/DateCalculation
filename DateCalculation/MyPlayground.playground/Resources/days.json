@@ -1,0 +1,45 @@
+[
+    {
+        "name": "New Year's Day",
+        "type": "exactDay",
+        "day": "1/1",
+        "moveToNearWeekDayIfWeekend": false
+    },
+    {
+        "name": "Australia Day",
+        "type": "exactDay",
+        "day": "26/1",
+        "moveToNearWeekDayIfWeekend": true
+    },
+    {
+        "name": "ANZAC Day",
+        "type": "exactDay",
+        "day": "25/4",
+        "moveToNearWeekDayIfWeekend": true
+    },
+    {
+        "name": "Queen's Birthday",
+        "type": "dayOfMonth",
+        "order": 2,
+        "month": 5,
+    },
+    {
+        "name": "Labour Day",
+        "type": "dayOfMonth",
+        "order": 1,
+        "month": 9,
+    },
+    {
+        "name": "Chrismas Day",
+        "type": "exactDay",
+        "day": "25/12",
+        "moveToNearWeekDayIfWeekend": true
+    },
+    {
+        "name": "Boxing Day",
+        "type": "exactDay",
+        "day": "26/12",
+        "moveToNearWeekDayIfWeekend": true
+    }
+]
+
