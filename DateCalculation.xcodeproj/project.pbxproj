@@ -10,7 +10,6 @@
 		E817E54A245A5770008E5864 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E549245A5770008E5864 /* AppDelegate.swift */; };
 		E817E553245A5774008E5864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E817E552245A5774008E5864 /* Assets.xcassets */; };
 		E817E556245A5774008E5864 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E817E554245A5774008E5864 /* LaunchScreen.storyboard */; };
-		E817E561245A5774008E5864 /* DateCalculationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E560245A5774008E5864 /* DateCalculationTests.swift */; };
 		E817E56C245A5775008E5864 /* DateCalculationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E56B245A5775008E5864 /* DateCalculationUITests.swift */; };
 		E817E57E245B0CD1008E5864 /* nsw.json in Resources */ = {isa = PBXBuildFile; fileRef = E817E57D245B0CD1008E5864 /* nsw.json */; };
 		E817E585245F95C7008E5864 /* DayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E581245F95C6008E5864 /* DayData.swift */; };
@@ -57,7 +56,6 @@
 		E817E555245A5774008E5864 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E817E557245A5774008E5864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E817E55C245A5774008E5864 /* DateCalculationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DateCalculationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E817E560245A5774008E5864 /* DateCalculationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationTests.swift; sourceTree = "<group>"; };
 		E817E562245A5774008E5864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E817E567245A5775008E5864 /* DateCalculationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DateCalculationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E817E56B245A5775008E5864 /* DateCalculationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationUITests.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 		E817E55F245A5774008E5864 /* DateCalculationTests */ = {
 			isa = PBXGroup;
 			children = (
-				E817E560245A5774008E5864 /* DateCalculationTests.swift */,
 				E817E5A624624107008E5864 /* QueueManagerTests.swift */,
 				E817E5A8246245C8008E5864 /* DateCalculationOperationTests.swift */,
 				E817E562245A5774008E5864 /* Info.plist */,
@@ -371,7 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E817E561245A5774008E5864 /* DateCalculationTests.swift in Sources */,
 				E817E5A724624107008E5864 /* QueueManagerTests.swift in Sources */,
 				E817E5A9246245C8008E5864 /* DateCalculationOperationTests.swift in Sources */,
 			);

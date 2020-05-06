@@ -64,8 +64,8 @@ class DateCalculationOperation: BaseOperation<(Int, [Holiday])> {
             alreadyExcludeEndDate = true
         }
         
-        guard let startWeek = calendar.ordinality(of: .weekday, in: .era, for: start),
-            let endWeek = calendar.ordinality(of: .weekday, in: .era, for: end),
+        guard let startWeek = calendar.ordinality(of: .weekOfYear, in: .era, for: start),
+            let endWeek = calendar.ordinality(of: .weekOfYear, in: .era, for: end),
             let startDay = calendar.ordinality(of: .day, in: .era, for: start),
             let endDay = calendar.ordinality(of: .day, in: .era, for: end) else {
                 complete(result: .success((0, [])))
@@ -83,7 +83,17 @@ class DateCalculationOperation: BaseOperation<(Int, [Holiday])> {
         }
         
         // Subtract holiday falls on weekday from start to end date
-        let filteredHolidayList = holidayList.filter { $0.day >= start && $0.day <= end }
+        let filteredHolidayList = holidayList.filter {
+            var startCheck = $0.day > start
+            if alreadyExcludeStartDate {
+                startCheck = $0.day >= start
+            }
+            var endCheck = $0.day < end
+            if alreadyExcludeEndDate {
+                endCheck =  $0.day <= end
+            }
+            return startCheck && endCheck
+        }
         var result = endDay - startDay - (endWeek - startWeek) * 2 - filteredHolidayList.count
         if alreadyExcludeStartDate {
             result += 1
@@ -125,7 +135,8 @@ private extension DateCalculationOperation {
         
         // Calculate Easter holidays
         holidays.append(contentsOf: findEasterDays(for: year))
-        return holidays
+        
+        return holidays.sorted(by: { $0.day < $1.day } )
     }
     
     private func makeHoliday(from dayData: DayData, year: Int, originalDays: [Date], storedHolidays: [Date]) -> Holiday? {
