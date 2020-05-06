@@ -30,6 +30,7 @@
 		E817E5A52461BB81008E5864 /* DateCalculationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A42461BB81008E5864 /* DateCalculationOperation.swift */; };
 		E817E5A724624107008E5864 /* QueueManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A624624107008E5864 /* QueueManagerTests.swift */; };
 		E817E5A9246245C8008E5864 /* DateCalculationOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A8246245C8008E5864 /* DateCalculationOperationTests.swift */; };
+		E817E5AB24628414008E5864 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5AA24628414008E5864 /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		E817E5A42461BB81008E5864 /* DateCalculationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationOperation.swift; sourceTree = "<group>"; };
 		E817E5A624624107008E5864 /* QueueManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManagerTests.swift; sourceTree = "<group>"; };
 		E817E5A8246245C8008E5864 /* DateCalculationOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationOperationTests.swift; sourceTree = "<group>"; };
+		E817E5AA24628414008E5864 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				E817E591245F9A15008E5864 /* Reuseable.swift */,
 				E817E596245FA616008E5864 /* Date+Extension.swift */,
 				E817E598245FAFEA008E5864 /* View+Extension.swift */,
+				E817E5AA24628414008E5864 /* Color+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				E817E590245F99E2008E5864 /* BaseViewController.swift in Sources */,
 				E817E58D245F99E2008E5864 /* BaseView.swift in Sources */,
 				E817E595245FA501008E5864 /* LoadingView.swift in Sources */,
+				E817E5AB24628414008E5864 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

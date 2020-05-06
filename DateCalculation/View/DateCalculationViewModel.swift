@@ -43,6 +43,21 @@ class DateCalculationViewModel {
         return formatter
     }()
     
+    private lazy var colors: [HolidayTableViewModel.Color] = [
+        HolidayTableViewModel.Color(indicatorColor: .appDarkPurple,
+                                    backgroundColor: .appLightPurple,
+                                    textColor: .appDarkPurple),
+        HolidayTableViewModel.Color(indicatorColor: .appDarkRed,
+                                    backgroundColor: .appLightRed,
+                                    textColor: .appDarkPurple),
+        HolidayTableViewModel.Color(indicatorColor: .appDarkGreen,
+                                    backgroundColor: .appLightGreen,
+                                    textColor: .appDarkPurple),
+        HolidayTableViewModel.Color(indicatorColor: .appDarkOrange,
+                                    backgroundColor: .appLightOrange,
+                                    textColor: .appDarkPurple),
+    ]
+    
     init(state: String,
          manager: QueueManager = QueueManager.shared) {
         self.state = state
@@ -60,10 +75,14 @@ class DateCalculationViewModel {
                 case .success(let numberOfDays, let holidays):
                     self.numberOfDays = numberOfDays
                     self.holidays = holidays
-                    self.holidayCellModels = self.holidays.map {
-                        HolidayTableViewModel(name: $0.name,
-                                              weekDay: self.weekDayFormatter.string(from: $0.day),
-                                              day: self.dayFormatter.string(from: $0.day))
+                    
+                    self.holidayCellModels.removeAll()
+                    for (index, holiday) in self.holidays.enumerated() {
+                        let color = self.colors[index % self.colors.count]
+                        self.holidayCellModels.append(HolidayTableViewModel(name: holiday.name,
+                                                                       weekDay: self.weekDayFormatter.string(from: holiday.day),
+                                                                       day: self.dayFormatter.string(from: holiday.day),
+                                                                       colors: color))
                     }
                     self.view?.configure(with: self)
                 case .failure(let error):

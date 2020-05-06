@@ -41,7 +41,11 @@ class DatePickerView: BaseView {
         stackView.addArrangedSubview(datePicker)
         
         buttonView.addSubview(doneButton)
+        buttonView.backgroundColor = .appLightPurple
         buttonView.addSubview(cancelButton)
+        
+        doneButton.setTitleColor(.appDarkPurple, for: .normal)
+        cancelButton.setTitleColor(.appDarkPurple, for: .normal)
     }
     
     override func configureLayout() {

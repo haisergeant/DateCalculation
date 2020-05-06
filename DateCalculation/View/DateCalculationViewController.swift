@@ -28,7 +28,9 @@ class DateCalculationViewController: BaseViewController {
     private let endButton = UIButton()
     
     private let labelStackView = UIStackView()
+    private let daysContainer = UIView()
     private let daysLabel = UILabel()
+    private let numberContainer = UIView()
     private let numberOfDaysLabel = UILabel()
     private let tableView = UITableView()
     
@@ -65,8 +67,10 @@ class DateCalculationViewController: BaseViewController {
         buttonStackView.addArrangedSubview(startButton)
         buttonStackView.addArrangedSubview(endButton)
         
-        labelStackView.addArrangedSubview(daysLabel)
-        labelStackView.addArrangedSubview(numberOfDaysLabel)
+        labelStackView.addArrangedSubview(daysContainer)
+        daysContainer.addSubview(daysLabel)
+        labelStackView.addArrangedSubview(numberContainer)
+        numberContainer.addSubview(numberOfDaysLabel)
         
         datePicker.alpha = 0
     }
@@ -102,28 +106,65 @@ class DateCalculationViewController: BaseViewController {
             horizontalStackView.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 20),
             horizontalStackView.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -10)
         ])
+        
+        NSLayoutConstraint.activate([
+            daysLabel.leftAnchor.constraint(equalTo: daysContainer.leftAnchor),
+            daysLabel.rightAnchor.constraint(equalTo: daysContainer.rightAnchor),
+            daysLabel.topAnchor.constraint(greaterThanOrEqualTo: daysContainer.topAnchor),
+            daysLabel.bottomAnchor.constraint(lessThanOrEqualTo: daysContainer.bottomAnchor),
+            daysLabel.firstBaselineAnchor.constraint(equalTo: startButton.firstBaselineAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            numberOfDaysLabel.leftAnchor.constraint(equalTo: numberContainer.leftAnchor),
+            numberOfDaysLabel.rightAnchor.constraint(equalTo: numberContainer.rightAnchor),
+            numberOfDaysLabel.topAnchor.constraint(greaterThanOrEqualTo: numberContainer.topAnchor),
+            numberOfDaysLabel.bottomAnchor.constraint(lessThanOrEqualTo: numberContainer.bottomAnchor),
+            numberOfDaysLabel.firstBaselineAnchor.constraint(equalTo: endButton.firstBaselineAnchor)
+        ])
+        daysLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        numberOfDaysLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
     
     override func configureContents() {
         super.configureContents()
+        topView.backgroundColor = .appLightPurple
         startButton.setTitle("Select START date", for: .normal)
         startButton.setTitleColor(.black, for: .normal)
+        startButton.setTitleColor(.appLightPurple, for: .normal)
+        startButton.backgroundColor = .appDarkPurple
+        startButton.layer.cornerRadius = 4
+        startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+        
         endButton.setTitle("Select END date", for: .normal)
         endButton.setTitleColor(.black, for: .normal)
+        endButton.setTitleColor(.appLightPurple, for: .normal)
+        endButton.backgroundColor = .appDarkPurple
+        endButton.layer.cornerRadius = 4
+        endButton.addTarget(self, action: #selector(endButtonTapped), for: .touchUpInside)
         
         daysLabel.text = "Weekdays"
+        daysLabel.textAlignment = .center
+        daysLabel.textColor = .appDarkPurple
+        daysLabel.font = UIFont.boldSystemFont(ofSize: 18)
         numberOfDaysLabel.text = "--"
+        numberOfDaysLabel.textAlignment = .center
+        numberOfDaysLabel.textColor = .appDarkPurple
+        numberOfDaysLabel.font = UIFont.systemFont(ofSize: 16)
+        
         horizontalStackView.axis = .horizontal
+        horizontalStackView.spacing = 20
         buttonStackView.axis = .vertical
+        buttonStackView.spacing = 10
         labelStackView.axis = .vertical
+        labelStackView.spacing = 10
         
         datePicker.delegate = self
         datePicker.configureDatePickerMode(.date)
-        startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
-        endButton.addTarget(self, action: #selector(endButtonTapped), for: .touchUpInside)
         
         tableView.dataSource = self
         tableView.register(HolidayTableViewCell.self)
+        tableView.separatorColor = .clear
     }
     
     override var backgroundColor: UIColor {
