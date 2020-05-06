@@ -15,6 +15,7 @@ enum DateSelectionState {
 
 protocol DateCalculationViewProtocol: class {
     func configure(with viewModel: DateCalculationViewModelProtocol)
+    func handleError(_ error: Error)
 }
 
 class DateCalculationViewController: BaseViewController {
@@ -29,6 +30,7 @@ class DateCalculationViewController: BaseViewController {
     private let labelStackView = UIStackView()
     private let daysLabel = UILabel()
     private let numberOfDaysLabel = UILabel()
+    private let tableView = UITableView()
     
     private let datePicker = DatePickerView()
     private var dateState: DateSelectionState? = .start
@@ -53,7 +55,9 @@ class DateCalculationViewController: BaseViewController {
     override func configureSubviews() {
         super.configureSubviews()
         view.addSubview(topView)
+        view.addSubview(tableView)
         view.addSubview(datePicker)
+        
         topView.addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(buttonStackView)
         horizontalStackView.addArrangedSubview(labelStackView)
@@ -70,12 +74,19 @@ class DateCalculationViewController: BaseViewController {
     override func configureLayout() {
         super.configureLayout()
         [topView, horizontalStackView, buttonStackView,
-         startButton, endButton, labelStackView, daysLabel, numberOfDaysLabel, datePicker].forEach { $0.disableTranslatesAutoResizing() }
+         startButton, endButton, labelStackView, daysLabel, numberOfDaysLabel, tableView, datePicker].forEach { $0.disableTranslatesAutoResizing() }
         
         NSLayoutConstraint.activate([
             topView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: topView.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         
         NSLayoutConstraint.activate([
@@ -110,6 +121,9 @@ class DateCalculationViewController: BaseViewController {
         datePicker.configureDatePickerMode(.date)
         startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         endButton.addTarget(self, action: #selector(endButtonTapped), for: .touchUpInside)
+        
+        tableView.dataSource = self
+        tableView.register(HolidayTableViewCell.self)
     }
     
     override var backgroundColor: UIColor {
@@ -168,5 +182,23 @@ extension DateCalculationViewController: DateCalculationViewProtocol {
     func configure(with viewModel: DateCalculationViewModelProtocol) {
         guard let dayDifference = viewModel.dayDifference else { return }
         numberOfDaysLabel.text = String(dayDifference)
+        tableView.reloadData()
+    }
+    
+    func handleError(_ error: Error) {
+          showError(error)
+      }
+}
+
+extension DateCalculationViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.numberOfCells ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellModel = viewModel?.cellModel(at: indexPath.row) else { return UITableViewCell() }
+        let cell: HolidayTableViewCell = tableView.dequeueReuseableCell(indexPath: indexPath)
+        cell.configure(with: cellModel)
+        return cell
     }
 }

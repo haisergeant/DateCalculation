@@ -16,27 +16,63 @@ protocol DateCalculationViewModelProtocol {
     var dayDifference: Int? { get }
     var start: Date? { get }
     var end: Date? { get }
+    var numberOfCells: Int { get }
+    func cellModel(at index: Int) -> BaseViewModel
 }
 
 class DateCalculationViewModel {
     weak var view: DateCalculationViewProtocol?
     private let state: String
-    private let manager: DayManagerProtocol
+    private let manager: QueueManager
     private var startDate: Date?
     private var endDate: Date?
     
     private var numberOfDays: Int?
+    private var holidays: [Holiday] = []
+    private var holidayCellModels: [HolidayTableViewModel] = []
     
-    init(state: String = "nsw",
-         manager: DayManagerProtocol = DayManager.shared) {
+    private lazy var weekDayFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        return formatter
+    }()
+    
+    private lazy var dayFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter
+    }()
+    
+    init(state: String,
+         manager: QueueManager = QueueManager.shared) {
         self.state = state
         self.manager = manager
     }
     
     func calculateWeekdaysWithGivenDates() {
         guard let start = startDate, let end = endDate else { return }
-        numberOfDays = manager.numberOfWeekdaysBetween(date1: start, date2: end)
-        view?.configure(with: self)
+        
+        let operation = DateCalculationOperation(state: state, date1: start, date2: end)
+        operation.completionHandler = { [weak self] result in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch result {
+                case .success(let numberOfDays, let holidays):
+                    self.numberOfDays = numberOfDays
+                    self.holidays = holidays
+                    self.holidayCellModels = self.holidays.map {
+                        HolidayTableViewModel(name: $0.name,
+                                              weekDay: self.weekDayFormatter.string(from: $0.day),
+                                              day: self.dayFormatter.string(from: $0.day))
+                    }
+                    self.view?.configure(with: self)
+                case .failure(let error):
+                    self.view?.handleError(error)
+                    break
+                }
+            }
+        }
+        manager.queue(operation)
     }
 }
 
@@ -62,7 +98,15 @@ extension DateCalculationViewModel: DateCalculationViewModelProtocol {
     var start: Date? {
         return startDate
     }
+    
     var end: Date? {
         return endDate
+    }
+    
+    var numberOfCells: Int {
+        return holidayCellModels.count
+    }
+    func cellModel(at index: Int) -> BaseViewModel {
+        return holidayCellModels[index]
     }
 }

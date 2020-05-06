@@ -13,7 +13,7 @@
 		E817E561245A5774008E5864 /* DateCalculationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E560245A5774008E5864 /* DateCalculationTests.swift */; };
 		E817E56C245A5775008E5864 /* DateCalculationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E56B245A5775008E5864 /* DateCalculationUITests.swift */; };
 		E817E57E245B0CD1008E5864 /* nsw.json in Resources */ = {isa = PBXBuildFile; fileRef = E817E57D245B0CD1008E5864 /* nsw.json */; };
-		E817E585245F95C7008E5864 /* DayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E581245F95C6008E5864 /* DayManager.swift */; };
+		E817E585245F95C7008E5864 /* DayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E581245F95C6008E5864 /* DayData.swift */; };
 		E817E588245F99CE008E5864 /* DateCalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E587245F99CE008E5864 /* DateCalculationViewController.swift */; };
 		E817E58D245F99E2008E5864 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E589245F99E2008E5864 /* BaseView.swift */; };
 		E817E58E245F99E2008E5864 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E58A245F99E2008E5864 /* BaseViewModel.swift */; };
@@ -25,6 +25,12 @@
 		E817E599245FAFEA008E5864 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E598245FAFEA008E5864 /* View+Extension.swift */; };
 		E817E59B245FD872008E5864 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E59A245FD872008E5864 /* DatePickerView.swift */; };
 		E817E59D24613C3B008E5864 /* DateCalculationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E59C24613C3B008E5864 /* DateCalculationViewModel.swift */; };
+		E817E59F2461A597008E5864 /* HolidayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E59E2461A597008E5864 /* HolidayTableViewCell.swift */; };
+		E817E5A22461BB36008E5864 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A02461BB36008E5864 /* QueueManager.swift */; };
+		E817E5A32461BB36008E5864 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A12461BB36008E5864 /* BaseOperation.swift */; };
+		E817E5A52461BB81008E5864 /* DateCalculationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A42461BB81008E5864 /* DateCalculationOperation.swift */; };
+		E817E5A724624107008E5864 /* QueueManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A624624107008E5864 /* QueueManagerTests.swift */; };
+		E817E5A9246245C8008E5864 /* DateCalculationOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A8246245C8008E5864 /* DateCalculationOperationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +63,7 @@
 		E817E56B245A5775008E5864 /* DateCalculationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationUITests.swift; sourceTree = "<group>"; };
 		E817E56D245A5775008E5864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E817E57D245B0CD1008E5864 /* nsw.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nsw.json; sourceTree = "<group>"; };
-		E817E581245F95C6008E5864 /* DayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayManager.swift; sourceTree = "<group>"; };
+		E817E581245F95C6008E5864 /* DayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayData.swift; sourceTree = "<group>"; };
 		E817E587245F99CE008E5864 /* DateCalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationViewController.swift; sourceTree = "<group>"; };
 		E817E589245F99E2008E5864 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E817E58A245F99E2008E5864 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -69,6 +75,12 @@
 		E817E598245FAFEA008E5864 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		E817E59A245FD872008E5864 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		E817E59C24613C3B008E5864 /* DateCalculationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationViewModel.swift; sourceTree = "<group>"; };
+		E817E59E2461A597008E5864 /* HolidayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTableViewCell.swift; sourceTree = "<group>"; };
+		E817E5A02461BB36008E5864 /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		E817E5A12461BB36008E5864 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		E817E5A42461BB81008E5864 /* DateCalculationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationOperation.swift; sourceTree = "<group>"; };
+		E817E5A624624107008E5864 /* QueueManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManagerTests.swift; sourceTree = "<group>"; };
+		E817E5A8246245C8008E5864 /* DateCalculationOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationOperationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				E817E560245A5774008E5864 /* DateCalculationTests.swift */,
+				E817E5A624624107008E5864 /* QueueManagerTests.swift */,
+				E817E5A8246245C8008E5864 /* DateCalculationOperationTests.swift */,
 				E817E562245A5774008E5864 /* Info.plist */,
 			);
 			path = DateCalculationTests;
@@ -163,7 +177,10 @@
 		E817E580245F95C6008E5864 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E817E581245F95C6008E5864 /* DayManager.swift */,
+				E817E5A12461BB36008E5864 /* BaseOperation.swift */,
+				E817E5A02461BB36008E5864 /* QueueManager.swift */,
+				E817E581245F95C6008E5864 /* DayData.swift */,
+				E817E5A42461BB81008E5864 /* DateCalculationOperation.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -194,6 +211,7 @@
 			children = (
 				E817E594245FA501008E5864 /* LoadingView.swift */,
 				E817E59A245FD872008E5864 /* DatePickerView.swift */,
+				E817E59E2461A597008E5864 /* HolidayTableViewCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -329,16 +347,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E817E5A22461BB36008E5864 /* QueueManager.swift in Sources */,
 				E817E588245F99CE008E5864 /* DateCalculationViewController.swift in Sources */,
 				E817E59D24613C3B008E5864 /* DateCalculationViewModel.swift in Sources */,
 				E817E58E245F99E2008E5864 /* BaseViewModel.swift in Sources */,
+				E817E5A52461BB81008E5864 /* DateCalculationOperation.swift in Sources */,
 				E817E592245F9A15008E5864 /* Reuseable.swift in Sources */,
-				E817E585245F95C7008E5864 /* DayManager.swift in Sources */,
+				E817E585245F95C7008E5864 /* DayData.swift in Sources */,
 				E817E54A245A5770008E5864 /* AppDelegate.swift in Sources */,
 				E817E597245FA616008E5864 /* Date+Extension.swift in Sources */,
 				E817E59B245FD872008E5864 /* DatePickerView.swift in Sources */,
 				E817E58F245F99E2008E5864 /* BaseTableViewCell.swift in Sources */,
+				E817E5A32461BB36008E5864 /* BaseOperation.swift in Sources */,
 				E817E599245FAFEA008E5864 /* View+Extension.swift in Sources */,
+				E817E59F2461A597008E5864 /* HolidayTableViewCell.swift in Sources */,
 				E817E590245F99E2008E5864 /* BaseViewController.swift in Sources */,
 				E817E58D245F99E2008E5864 /* BaseView.swift in Sources */,
 				E817E595245FA501008E5864 /* LoadingView.swift in Sources */,
@@ -350,6 +372,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E817E561245A5774008E5864 /* DateCalculationTests.swift in Sources */,
+				E817E5A724624107008E5864 /* QueueManagerTests.swift in Sources */,
+				E817E5A9246245C8008E5864 /* DateCalculationOperationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
