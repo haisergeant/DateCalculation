@@ -12,7 +12,6 @@ class DateCalculationOperation: BaseOperation<(Int, [Holiday])> {
     private let decoder = JSONDecoder()
     private var dayDataList: [DayData] = []
     
-    // TODO: For test - Remove timezone
     private let timeZone = TimeZone(abbreviation: "GMT+0:00")
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()

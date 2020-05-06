@@ -31,6 +31,9 @@
 		E817E5A724624107008E5864 /* QueueManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A624624107008E5864 /* QueueManagerTests.swift */; };
 		E817E5A9246245C8008E5864 /* DateCalculationOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5A8246245C8008E5864 /* DateCalculationOperationTests.swift */; };
 		E817E5AB24628414008E5864 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817E5AA24628414008E5864 /* Color+Extension.swift */; };
+		E817E5B72463033B008E5864 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = E817E5B42463033B008E5864 /* first.png */; };
+		E817E5B82463033B008E5864 /* result.png in Resources */ = {isa = PBXBuildFile; fileRef = E817E5B52463033B008E5864 /* result.png */; };
+		E817E5B92463033B008E5864 /* select-date.png in Resources */ = {isa = PBXBuildFile; fileRef = E817E5B62463033B008E5864 /* select-date.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,10 @@
 		E817E5A624624107008E5864 /* QueueManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManagerTests.swift; sourceTree = "<group>"; };
 		E817E5A8246245C8008E5864 /* DateCalculationOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculationOperationTests.swift; sourceTree = "<group>"; };
 		E817E5AA24628414008E5864 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		E817E5AC2462FCA6008E5864 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E817E5B42463033B008E5864 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		E817E5B52463033B008E5864 /* result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = result.png; sourceTree = "<group>"; };
+		E817E5B62463033B008E5864 /* select-date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select-date.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +118,8 @@
 		E817E53D245A5770008E5864 = {
 			isa = PBXGroup;
 			children = (
+				E817E5AC2462FCA6008E5864 /* README.md */,
+				E817E5B32463033B008E5864 /* screenshot */,
 				E817E548245A5770008E5864 /* DateCalculation */,
 				E817E55F245A5774008E5864 /* DateCalculationTests */,
 				E817E56A245A5775008E5864 /* DateCalculationUITests */,
@@ -214,6 +223,16 @@
 				E817E59E2461A597008E5864 /* HolidayTableViewCell.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		E817E5B32463033B008E5864 /* screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				E817E5B42463033B008E5864 /* first.png */,
+				E817E5B52463033B008E5864 /* result.png */,
+				E817E5B62463033B008E5864 /* select-date.png */,
+			);
+			path = screenshot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +339,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E817E5B72463033B008E5864 /* first.png in Resources */,
+				E817E5B92463033B008E5864 /* select-date.png in Resources */,
 				E817E556245A5774008E5864 /* LaunchScreen.storyboard in Resources */,
 				E817E553245A5774008E5864 /* Assets.xcassets in Resources */,
 				E817E57E245B0CD1008E5864 /* nsw.json in Resources */,
+				E817E5B82463033B008E5864 /* result.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
